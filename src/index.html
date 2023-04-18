@@ -13,48 +13,41 @@
     <!-- Contenedor principal -->
     <main class="container">
         <h1>VALIDACIÓN DE TARJETA</h1>
-
+        <section>
+            <p id="textoDeValidacion"> </p>
+            <br>
+        </section>
+        <section>
+            <span id="hashCardNumber"></span>
+        </section>
         <!-- Tarjeta -->
-        <section class="card">
-            <form action="card">
-                <div class="formGroup">
-                    <label for="typeOfCard">Elige tu tipo de tarjeta </label>
-                    <select name="typeofCard" id="typeofCard" required>                           
-                    <option></option>
-                    <option value="creditCard">Tarjeta De Crédito</option>
-                    <option value="debitCard">Tarjeta De Débito</option> 
-                </select>
-                </div>
+        <section class="card-form">
+            <form id="formCardValidation" action="">
+                <label for="typeOfCard">Elige tu tipo de tarjeta </label>
+                <select name="typeofCard" id="typeofCard" required>                           
+                        <option></option>
+                        <option value="creditCard">Tarjeta De Crédito</option>
+                        <option value="debitCard">Tarjeta De Débito</option> 
+                    </select>
                 <br><br>
-
-                <div class="formGroup">
-                    <label for="bank">Banco de Procedencia</label>
-                    <select name="bank" id="banks" required>
-                    <option></option>                           
-                    <option value="Banco Interbank">Banco Interbank</option>
-                    <option value="BCP">BCP</option>
-                    <option value="Scotiabank">Scotiabank</option>
-                    <option value="BBVA Continnetal">Bbva Continnetal</option>  
-                    <option value="Banco de la Nación">Banco de la Nacion</option> <br><br>           
-                </select>
-                    <br><br>
-                </div>
-
-                <div class="formGroup">
-                    <label for="username"> Nombre Completo </label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Ingrese su nombre" required> <br><br>
-                </div>
-
-                <div class="formGroup">
-                    <label for="cardNumber">Número de tarjeta</label>
-                    <input type="text" class="form-control" id="cardNumber" name="cardNumber" maxlength="16" placeholder="Ingrese el número de su tarjeta" required>
-                    <br><br>
-                </div>
-
-                <div class="flexbox">
-                    <label for="expire">Fecha de Vencimiento</label>
-                    <div class="inputBox">
-                        <select name="month" id="month" class="formControl" required> 
+                <label for="bank">Banco de Procedencia</label>
+                <select name="bank" id="banks" required>
+                        <option></option>                           
+                        <option value="Banco Interbank">Banco Interbank</option>
+                        <option value="BCP">BCP</option>
+                        <option value="Scotiabank">Scotiabank</option>
+                        <option value="BBVA Continnetal">Bbva Continnetal</option>  
+                        <option value="Banco de la Nación">Banco de la Nacion</option>
+                    </select>
+                <br><br>
+                <label class="formlabel" for="username"> Nombre Completo </label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Ingrese su nombre" required> <br><br>
+                <label class="formlabel" for="cardNumber">Número de tarjeta</label>
+                <input type="text" class="form-control" id="cardNumber" name="cardNumber" maxlength="16" placeholder="0000-0000-0000-0000" required>
+                <br><br>
+                <label for="expire">Fecha de Vencimiento</label>
+                <div class="inputBox">
+                    <select name="month" id="month" class="formControl" required> 
 
                     <option value="month" >Mes</option>
                     <option value="01">01</option>
@@ -69,36 +62,35 @@
                     <option value="10">10</option>
                     <option value="11">11</option>
                     <option value="12">12</option>
-                  </select>
-
-                        <select name="year" id="year" class="formControl" required>
-                      <option value="year" >Año</option>
-                      <option value="2021">2021</option>
-                      <option value="2022">2022</option>
-                      <option value="2023">2023</option>
-                      <option value="2024">2024</option>
-                      <option value="2025">2025</option>
-                      <option value="2026">2026</option>
-                      <option value="2027">2027</option>
-                      <option value="2028">2028</option>
-                      <option value="2029">2029</option>
-                      <option value="2030">2030</option>
-                    </select>
-                        <br><br>
-                        <label for="expiration"> Código de seguridad </label>
-                        <input type="text" id="expiration" class="formControl" name="expiration" maxlength="4" placeholder="MM/YY" required>
-                    </div>
+                        </select>
+                    <select name="year" id="year" class="formControl" required>
+                                <option value="year" >Año</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                                <option value="2029">2029</option>
+                                <option value="2030">2030</option>
+                        </select>
                     <br><br>
-                    <!-- <buttones para Validar y reiniciar Tarjeta -->
-                    <button type="submit" class="btnPrimary" id="botonSubmit"> VALIDAR </button>
-                    <button name="button" class="btnSecondary" id="botonRestart"> REINICIAR </button>
+                    <label for="expiration"> Código de seguridad </label>
+                    <input type="text" id="expiration" class="formControl" name="expiration" maxlength="3" placeholder="CVV" required>
+                </div>
+                <br><br>
+                <!-- <buttones para Validar y reiniciar Tarjeta -->
+                <button type="submit" class="btnPrimary"> VALIDAR </button>
+                <button name="button" class="btnSecondary" id="buttonRestart"> REINICIAR </button>
+
+                </div>
             </form>
         </section>
     </main>
-    <section>
-        <footer> Sistemas de pago fácil Arkuna Market </footer>
-        <script src="index.js" type="module"></script>
-    </section>
+    <footer> Sistemas de pago fácil Arkuna Market </footer>
+    <script src="index.js" type="module"></script>
 </body>
 
 </html>

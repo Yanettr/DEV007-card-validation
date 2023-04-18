@@ -1,23 +1,18 @@
-/*cree una constante validator, dentro del objeto se define la funcion isValid, para validar un
-número de tarjeta con el algoritmo luhn y la funcion maskify con la cual enmascaro los
-número de la tarjeta y dejo sin enmascarar los 4 úlitmos digitos*/
+/* objeto  Validator creado segun readme con atributo isvalid y maskify */
 const validator = {
-    /*is creditCardNumber valid?
-    const cardNumber = document.getElementById('cardNumber').value; llamo el valor de cardNumber
-    console.log(card);*/
-    isValid: (creditCardNumber) => {
+    isValid: (creditCardNumber) => { /* este es una funcion  no seria isvalid: function(creditcardnumber)*/
         let respuesta = false;
         if (creditCardNumber.length >= 11) {
-            let arrayNumerico = invertirTarjeta(creditCardNumber);
-            arrayNumerico = multiplicarPares(arrayNumerico);
+            const arrayNumericoInvertido = invertirTarjeta(creditCardNumber);
+            const arrayNumerico = multiplicarPosicionesPares(arrayNumericoInvertido);
             const total = sumarElementosArray(arrayNumerico);
+            //residuo debe ser igual 0
             if (total % 10 === 0) {
                 respuesta = true;
             }
         }
         return respuesta;
     },
-
 
 
     maskify: (numeroTarjeta) => {
@@ -37,31 +32,29 @@ const validator = {
     },
 };
 
-// la funcion convierte el dato string a un arreglo de datos string("Array.from")
-// luego con ".reverse" invierto los datos de mi arreglo , con ".map"
-// (transforma cada item de mi array a un nuevo array item por item para darle el que deseo)
-// con "Numero()"
-function invertirTarjeta(numeroTarjeta) {
-    const arrayTarjeta = Array.from(numeroTarjeta).reverse();
-    const arrayNumerico = arrayTarjeta.map((numeroString) => //xxxxx
+
+function invertirTarjeta(numeroTarjeta) { //  from es una funcion de la clase Array
+    const arrayTarjeta = Array.from(numeroTarjeta);
+    const arrayInvertido = arrayTarjeta.reverse(); //reverse es una funcion que necesitan una variable/constante tipo array.
+    const arrayNumerico = arrayInvertido.map((numeroString) => // map es una funcion que necesita una variable/ constant tipo array.
         Number(numeroString)
     );
     return arrayNumerico;
 }
 
-// ubica los pares
+
 function esPar(numero) {
     return numero % 2 === 0;
 }
 
-// la funcion multipica las ubicaciones pares del array
-function multiplicarPares(arrayNumerico) {
+
+function multiplicarPosicionesPares(arrayNumerico) {
     for (let indice = 0; indice < arrayNumerico.length; indice++) {
         const indiceReal = indice + 1;
         if (esPar(indiceReal)) {
             arrayNumerico[indice] = arrayNumerico[indice] * 2;
 
-            if (esNumeroDosDigitos(arrayNumerico[indice])) {
+            if (arrayNumerico[indice] >= 10) {
                 arrayNumerico[indice] = sumarDigitos(arrayNumerico[indice]);
             }
         }
@@ -69,12 +62,6 @@ function multiplicarPares(arrayNumerico) {
     return arrayNumerico;
 }
 
-// reconocemosn si el resultado es mayor a 2 digitos (mayor o = a 10)
-function esNumeroDosDigitos(numero) {
-    return numero >= 10;
-}
-
-// sumar resultados de los resultado de dos digitos
 function sumarDigitos(numero) {
     const numeroString = numero.toString();
     const arrayNumero = Array.from(numeroString);
@@ -85,7 +72,7 @@ function sumarDigitos(numero) {
     });
     return acumulador;
 }
-// sumas los indices de mis arreglos
+
 function sumarElementosArray(arrayNumerico) {
     let total = 0;
     arrayNumerico.forEach((element) => {
