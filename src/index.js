@@ -1,31 +1,76 @@
 import validator from './validator.js';
-console.log(validator);
 
-const cardNumberInput = document.getElementById("cardNumber");
-const hashCardNumberSpan = document.getElementById("hashCardNumber");
-cardNumberInput.addEventListener('keyup', maskCardNumber);
+const cardNumberInput =document.getElementById("cardNumber");
+const maskedCardNumberP =document.getElementById("maskedCardNumber");
 
-function maskCardNumber() {
-    const cardMask = validator.maskify(cardNumberInput.value);
-    hashCardNumberSpan.innerHTML = cardMask;
-}
+cardNumberInput.addEventListener('keyup', () => {
+  const cardDiv=document.getElementById("card");
+  cardDiv.classList.remove('active');
 
-const formCardValidation = document.getElementById("formCardValidation");
-formCardValidation.addEventListener('submit', validateCardNumber);
+  console.log(cardNumberInput.value);
+  console.log(validator.maskify( cardNumberInput.value ));
+  maskedCardNumberP .innerHTML =validator.maskify(cardNumberInput.value);
+});
+const usernameInput=document.getElementById("username");
+const nameP =document.getElementById("nombre");
 
-document.getElementById("buttonRestart").addEventListener("click", function(e) {
-    e.preventDefault();
-    document.getElementById("formCardValidation").reset();
+usernameInput.addEventListener('keyup', () => {
+  console.log(usernameInput.value);
+  nameP.innerHTML = usernameInput.value;
 });
 
-function validateCardNumber(event) {
-    event.preventDefault();
+const cvvInput=document.getElementById("cvv");
+const cvvP =document.getElementById("codigoV");
 
-    const isValidCardNumber = validator.isValid(cardNumberInput.value)
+cvvInput.addEventListener('keyup', () => {
+  console.log(cvvInput.value);
+  cvvP.innerHTML = cvvInput.value;
+  
+  const cardDiv=document.getElementById("card");
+  cardDiv.classList.add('active');
+});
 
-    if (isValidCardNumber) {
-        alert("Tarjeta validada correctamente");
-    } else {
-        alert("Tarjeta invalida, verfique informacion ingresada");
-    }
-}
+const monthSelect =document.getElementById("month");
+const monthSpan =document.getElementById("monthCard");
+
+monthSelect.addEventListener('change', () => {
+  monthSpan.innerHTML = monthSelect.value;
+});
+
+const yearSelect =document.getElementById("year");
+const yearSpan =document.getElementById("yearCard");
+yearSelect.addEventListener('change', () => {
+  yearSpan.innerHTML = yearSelect.value;
+});
+
+const formCard = document.getElementById("formCardValidation");
+const messageSpan=document.getElementById("message");
+
+formCard.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const validCardNumberResult = validator.isValid(cardNumberInput.value);
+  console.log(validCardNumberResult);
+  if (validCardNumberResult===true){
+    messageSpan.innerHTML="tarjeta valida";    
+    messageSpan.className = "success";
+  }
+  else { 
+    messageSpan.innerHTML="tarjeta invalida"; 
+    messageSpan.className = "error";
+  }
+});
+
+const btnRestart = document.getElementById("buttonRestart");
+btnRestart.addEventListener("click", (event) =>{
+  event.preventDefault();
+  formCard.reset();
+
+  maskedCardNumberP.innerHTML = "#### #### #### ####";
+  nameP.innerHTML = "XXXXX XXXXXXX";
+  cvvP.innerHTML="XXX";
+  monthSpan.innerHTML = "MM";
+  yearSpan.innerHTML = "AA";
+
+  messageSpan.innerHTML = "";
+  messageSpan.className = "";
+})
