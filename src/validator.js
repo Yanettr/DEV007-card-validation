@@ -1,5 +1,7 @@
-/* objeto  Validator creado segun readme con atributo isvalid y maskify */
+/* objeto  Validator creado segun readme posee dos métodos: isvalid y maskify */ 
 const validator = {
+
+  /*método isValid, validar el número de tarjeta (typeof string)*/ 
   isValid: (creditCardNumber) => { /* es una forma de declarar una function que se almacena en el atributo isvalid del objeto validator*/
     let respuesta = false;
     if (creditCardNumber.length >= 11) {
@@ -11,15 +13,19 @@ const validator = {
         respuesta = true;
       }
     }
+
     return respuesta;
   },
 
+  // Método maskify
   maskify: (numeroTarjeta) => {
+    //enmascarar todos los dígitos a excepción de los cuatro últimos
     if (numeroTarjeta.length >= 5) {
       const cuatroDigitos = numeroTarjeta.slice(-4);
       const arrayNumeroTarjeta = Array.from(numeroTarjeta);
       const numeroParaEnmascarar = arrayNumeroTarjeta.length - 4;
       let acumuladorNumeroEnmascarar = "";
+      //for es bucle que repite las instrucciones un determunado número de veces.
       for (let i = 0; i < numeroParaEnmascarar; i++) {
         acumuladorNumeroEnmascarar = acumuladorNumeroEnmascarar + "#";
       }
@@ -30,21 +36,28 @@ const validator = {
   },
 };
 
+//Aplicando el algoritmo de Luhn
+//*Obtener un arreglo con los # de la tarjeta
 function invertirTarjeta(numeroTarjeta) { //  from es una funcion de la clase Array
+
   const arrayTarjeta = Array.from(numeroTarjeta);
+  //* Invertir el orden del array
   const arrayInvertido = arrayTarjeta.reverse(); //reverse es una funcion que necesitan una variable/constante tipo array.
   const arrayNumerico = arrayInvertido.map((numeroString) => // map es una funcion que necesita una variable/ constant tipo array.
     Number(numeroString)
   );
   return arrayNumerico;
 }
-// [4,7,7,0,0,2]
-//  1 2 3 4 5 6
+
+//*Números de posición par se multiplican x2
 function multiplicarPosicionesPares(arrayNumerico) {
   for (let indice = 0; indice < arrayNumerico.length; indice++) {
     const indiceReal = indice + 1;
+    //la sentencia= nuestra posicion va a mostrar los pares
+    //muestra posicion par se multiplica por 2
     if (indiceReal % 2 === 0) {
       arrayNumerico[indice] = arrayNumerico[indice] * 2;
+      //*Verificar si la suma es divisible por 10
       if (arrayNumerico[indice] >= 10) {
         arrayNumerico[indice] = sumarDigitos(arrayNumerico[indice]);
       }
@@ -52,7 +65,8 @@ function multiplicarPosicionesPares(arrayNumerico) {
   }
   return arrayNumerico;
 }
-
+ 
+//*Obtener suma de los números del array
 function sumarDigitos(numero) {
   const numeroString = numero.toString();
   const arrayNumero = Array.from(numeroString);
@@ -63,6 +77,7 @@ function sumarDigitos(numero) {
   return acumulador;
 }
 
+//*Obtener suma total impar y par
 function sumarElementosArray(arrayNumerico) {
   let total = 0;
   arrayNumerico.forEach((element) => {

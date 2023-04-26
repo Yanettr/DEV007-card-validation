@@ -14,7 +14,7 @@ header {
   justify-content: space-between;
   align-items: center;
   color: #ffffff;
-  padding: 20px;
+  padding: 15px;
 }
 .logo img{
   width: 50px;
@@ -24,11 +24,11 @@ nav ul {
   margin: 0;
   background-color: #f1e32d;
   text-align: center;
-  font-size: 1.1em;
+  font-size: 0.5 em;
 }
 nav ul li {
   display: inline-block;
-  padding: 20px 20px;
+  padding: 10px 10px;
 }
 nav ul li:hover {
   background-color: #ffffff;
@@ -37,12 +37,12 @@ nav ul li a {
   color: #052262;
   text-decoration: none;
 }
+ /* Estilos para el body*/
 .container {
   text-align: center;
+  margin-top: 40px;
 }
-.container{
-  margin-top: 20px;
-}
+/* estilos generales de la tarjeta */
 .card {  
   margin: 0 auto;
   max-width: 470px;
@@ -54,29 +54,30 @@ nav ul li a {
   transition: .3s ease all;
   transform: rotateY(0deg);
   transform-style: preserve-3d; 
-   background-color: #797474;
-   border-radius: 15px;
+  background-color:#0036b3;
+  box-shadow: 2px 2px 10px 0px rgba(0,85,212,0.4);
+  border-radius: 15px;
 }
 
 .card.active {
   transform: rotateY(180deg);
 }
 
-.tarjetaFrent {
+.cardFrent{
   padding: 36px;
 }
 
-.tarjeta-dorso {
+.cardBack {
   display: none;
   transform: rotateY(180deg);
   backface-visibility: hidden;
 }
 
-.active .tarjeta-dorso {
+.active .cardBack {
   display: block;
 }
 
-.active .tarjeta-frente{
+.active .cardFrent{
   display: none;
 }
 
@@ -88,10 +89,11 @@ nav ul li a {
   width: 60px;
   display: block;
 }
-.sign-title {
+.signTitle {
   margin-top: 10px;
+  padding: 12px;
 }
-#firma {
+#sign {
   height: 40px;
   background: repeating-linear-gradient(skyblue 0, skyblue 5px, rgb(224, 241, 184) 5px, rgb(224, 241, 184) 10px);
   font-size: 28px;
@@ -100,9 +102,7 @@ nav ul li a {
   text-transform: capitalize;
   margin-bottom: 12px;
 }
-.sign-title{
-  padding: 12px;
-}
+/*Formulario de tarjeta*/
 .form {
   margin-bottom: 50px;
   margin-top: 30px;
@@ -136,6 +136,7 @@ select {
 .form-cardNumber{
   width: 260px;
 }
+
 .btnPrimary, .btnSecondary {
   display: inline-block;
   margin-left: 12px;
@@ -164,10 +165,10 @@ select {
     border-radius: 4px;
     color: white;
 }
- /* Estilos para el texto del copyright */
+ /* Estilos para el footer */
  footer {
   background-color: #f1e32d;
   color: #1850b1;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
 }

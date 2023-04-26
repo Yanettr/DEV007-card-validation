@@ -27,14 +27,15 @@
     </ul>
   </nav>
   <!-- Contenedor principal -->
-  <main class="container">
-      <h2 class="title">¡Bienvenido al Sistema de Pagos Market Arkuna!</h2>
+  <main class="container" id="container">
+      <h2 class="title">¡Bienvenido al Sistema de Validación de Tarjeta Market Arkuna!</h2>
       <p>Paga tus cuentas de forma fácil y segura</p>
       <!--tarjeta-frente-->
       <div id = "card" class="card">
-        <div class="tarjetaFrent">
+        <div class="cardFrent">
           <div class="logoBanco"  id="logoMarca">
           </div> 
+          <!--Contenedor dentro del cual se adiciona la img de la tarjeta -->
           <img src="img/chip-tarjeta.png" alt="chip" class="chip"> 
           <div class="datos">
             <div class="grupo" id="numero">
@@ -53,11 +54,11 @@
           </div>
         </div>
         <!--tarjeta-dorso-->
-        <div class="tarjeta-dorso">
+        <div class="cardBack">
           <div class="barraMagnetica"></div>
           <section class="firmaCVV">
-            <p class="sign-title">Firma</p>
-            <div id="firma"></div>
+            <p class="signTitle">Firma</p>
+            <div id="sign"></div>
             <div class="grupo cvv">
               <p class="label">CVV</p>
               <p id="codigoV">XXX</p>
@@ -70,6 +71,7 @@
       <section class="card-form">
           <span id="message"></span>
           <form id="formCardValidation" class="form" action="">
+            
               <label for="typeOfCard">Elige tu tipo de tarjeta </label>
               <select id="typeofCard" class="date-card" title="typeofCard" name="typeofCard" required>                           
                   <option></option>
@@ -77,6 +79,7 @@
                   <option value="debitCard">Tarjeta De Débito</option> 
               </select>
               <br><br>
+
               <label for="bank">Banco de Procedencia</label>
               <select id="banks" class="date-bank" title="banks" name="bank" required>
                   <option></option>                           
@@ -87,11 +90,16 @@
                   <option value="Banco de la Nación">Banco de la Nacion</option>
               </select>
               <br><br>
+
+              <!--Input donde el usuario va a ingresar su nombre completo-->
               <label class="formlabel" for="username"> Nombre Completo </label>
               <input type="text" class="form-name" id="username" name="username" placeholder="Ingrese su nombre" required> <br><br>
+              
+              <!--Input donde el usuario va a ingresar el número de su tarjeta-->
               <label class="formlabel" for="cardNumber">Número de tarjeta</label>
               <input type="text" class="form-cardNumber" id="cardNumber" name="cardNumber" maxlength="16" placeholder="0000-0000-0000-0000" required>
               <br><br>
+
               <label for="expire">Fecha de Vencimiento</label>
                   <select title="month" name="month" id="month" class="formControl" required> 
                     <option value="month" >Mes</option>
@@ -132,6 +140,7 @@
           </form>
       </section>
   </main>
+  <!-- <footer -->
   <footer>
       <p>Mi Tienda en Línea - Arkuna Market © 2023 </p>   
   </footer>
