@@ -59,7 +59,7 @@ formCard.addEventListener('submit', (event) => {
     messageSpan.className = "success";
   }
   else {
-    messageSpan.innerHTML = "Ingrese un número de tarjeta válido por favor'";
+    messageSpan.innerHTML = "Ingrese un número de tarjeta válido por favor";
     messageSpan.className = "error";
   }
 });
