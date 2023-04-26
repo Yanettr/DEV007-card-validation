@@ -4,6 +4,7 @@
 * 1. Descripción
 * 2. Interfaz de usuario (UI)
 * 3. Desarrollo del proyecto
+* 4. Visualización del Proyecto
 ***
 ## 1. Descripción
 
@@ -81,7 +82,7 @@ En este archivo se encuentra todo el código que tenga que ver con la interacci�
   </div>
 
 
-5. Visualización de la página web.
+## 4. Visualización de la página web.
 En este <a href="https://yanettr.github.io/DEV007-card-validation/src/">link</a>  podrás interactuar con la página web.
 
 
