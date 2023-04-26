@@ -82,6 +82,6 @@ En este archivo se encuentra todo el código que tenga que ver con la interacci�
 
 
 5. Visualización de la página web.
-En este https://yanettr.github.io/DEV007-card-validation/src/  podras interactuar con la página web.
+En este <a href="https://yanettr.github.io/DEV007-card-validation/src/">link</a>  podrás interactuar con la página web.
 
 
