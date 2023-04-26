@@ -80,3 +80,8 @@ En este archivo se encuentra todo el código que tenga que ver con la interacci�
     <img width="539" alt="tab_1" src="/src/img-Readme/diseño-pag1.png">
   </div>
 
+
+5. Visualización de la página web.
+En este https://yanettr.github.io/DEV007-card-validation/src/  podras interactuar con la página web.
+
+
