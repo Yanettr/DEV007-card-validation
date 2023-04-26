@@ -1,10 +1,10 @@
 # Proyecto Card-Validation 
 
 # Índice
-*Descripción
-*Interfaz de usuario (UI)
-*Desarrollo del proyecto
-
+* 1. Descripción
+* 2. Interfaz de usuario (UI)
+* 3. Desarrollo del proyecto
+***
 ## 1. Descripción
 
 Creación de un proyecto que tiene como objetivo validar la información de una tarjeta de crédito o débito, a través de del algoritmo de Luhn, que verifica si el número de la tarjeta es válido y si cumple con ciertos requisitos de seguridad(test).
@@ -21,7 +21,8 @@ La interfaz permitir al usuario:
 
 La validación de la tarjeta del usuario permitirá un pago exitoso y con ello, el acceso a los servicios y promociones de Market Arkuna.
 
-### Prototipo de baja fidelidad 
+## 3. Desarrollo del proyecto
+  ### Prototipo de baja fidelidad 
 Se realiza un esquema general en una hoja de papel, para este proyecto se diseñó un formulario de registro.
 
 <div align="center">
