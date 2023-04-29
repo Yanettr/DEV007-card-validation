@@ -8,9 +8,9 @@
 ***
 ## 1. Descripción
 
-Creación de un proyecto que tiene como objetivo validar la información de una tarjeta de crédito o débito, a través de del algoritmo de Luhn, que verifica si el número de la tarjeta es válido y si cumple con ciertos requisitos de seguridad(test).
+Este proyecto tiene como objetivo validar la información de una tarjeta de crédito o débito, a través de del algoritmo de Luhn, que verifica si el número de la tarjeta es válido o no y cuenta con test unitarios que certifican la calidad del código.
 
-Es una futura página de un market online llevará el nombre “Market Arkuna” 100% en español donde los clientes tendrán que registrarse por única vez la tarjeta que va a utilizar para comprar online en las tiendas y convertirse en nuestros clientes CVP. De esta manera podrán disfrutar de todos los beneficios y promociones de las tiendas para ello deberá realizar esta validación.
+La página representa la validación de pago de un Market online que se llama: “Market Arkuna”, donde los clientes tendrán que registrarse por única vez la tarjeta que va a utilizar para comprar online en las tiendas. De esta manera podrán disfrutar de todos los beneficios y promociones de las tiendas para ello deberá registrar su tarjeta.
 
 ## 2. Interfaz de usuario (UI)
 
@@ -32,20 +32,18 @@ Se realiza un esquema general en una hoja de papel, para este proyecto se diseñ
 
 La pantalla muestra los siguientes aspectos:
 
-1. Validez de la tarjeta: si la tarjeta es válida sale un pequeño recuadro de color verde debajo del modelo de tarjeta aparece un recuadro:"¡Gracias por elegirnos! Tarjeta válida". Por otro lado, si se introduce un número inválido o no se ha puesto nada aparece en el recuadro un texto: “Escriba un número de tarjeta válido”
+1. Validez de la tarjeta: si la tarjeta es válida sale un pequeño recuadro de color verde debajo del modelo de tarjeta, aparece un recuadro:"¡Gracias por elegirnos! Tarjeta válida". Por otro lado, si se introduce un número inválido o no se ha puesto nada aparece en el recuadro un texto: “Escriba un número de tarjeta válido”
 
 2. Se establece parámetros de llenado de todas las casillas de forma obligatoria (Tipo de tarjeta - Banco de procedencia -  Colocar su nombre - fecha de vencimiento y el CVV:Datos que se solicita al usuario y necesitan ser seleccionados y escritos).
 
 3. Usuario escribe en los inputs y se debe imprimir en la tarjeta modelo.
 
-4. Se crea dos botones de validar la tarjeta y el otro boton resetea o limpia la página.
-
-5. Validar la correcta ejecución los test unitario.
+4. Se crea dos botones de acción: una valida la tarjeta y el otro limpia el formulario para que el usuario ingrese sus datos.
 
  Archivos 
 
 ##### (HTML y CSS)
-En el archivo de HTML y CSS se encuentra maquetado de forma exacta el prototipo final realizado en  la herramienta, se utilizó un diseño de baja fidelidad.
+En el archivo de HTML y CSS se encuentra maquetado no al prototipo anteriormente mostrado. Para el prototipo final se utilizó un diseño de baja fidelidad.
 
 ##### `src/index.html`
 
@@ -53,6 +51,7 @@ En este archivo va el contenido que se mostrará al usuario (esqueleto HTML).
 * `<header>`: encabezado de tu proyecto.
 * `<section>`: contenido principal de tu proyecto.
 * `<form>`: formulario para agregar la información de la tarjeta de crédito.
+* `<footer>`: pie de página para el contenido.
 
 ##### `src/style.css`
 
@@ -61,13 +60,14 @@ Este archivo contiene las reglas de estilo sin ninguna libreria como menciona el
 #### JavaScript 
 
 * La lógica del proyecto esta implementada completamente en Vanilla JavaScript.
+* Se encuentran las pruebas unitarias.
 * Se encuentran  2 archivos JavaScript separando responsabilidades:
 
-##### `src/validator.js`
+##### `src/validator.js`(ECMAScript)
 
-En este archivo esta las funciones necesarias para que el usuario pueda verificar la
+En este archivo está las funciones necesarias para que el usuario pueda verificar la
 tarjeta de crédito y ocultar los dígitos de su número de tarjeta.Objeto (`validator`) contiene
-dos métodos (`isValid` y `maskify`):
+dos funciones (`isValid` y `maskify`):
 
 ##### `src/index.js`
 
